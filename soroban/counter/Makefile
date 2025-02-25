@@ -13,7 +13,7 @@ h help:
 	@echo "  generate-account  - Create a new Stellar test account with funds"
 	@echo "  fund              - Fund the test account using friendbot"
 	@echo "  deploy            - Deploy the contract to testnet using alice's account"
-	@echo "  bindings ID       - Generate TypeScript bindings for contract ID"
+	@echo "  bindings ID       - Generate TypeScript bindings for contract ID and copy bindigngs to the ts example"
 	@echo " "
 
 # Run all tests
@@ -55,10 +55,10 @@ deploy:
 
 # Generate TypeScript bindings (usage: make bindings CONTRACT_ID)
 bindings:
-	stellar contract bindings typescript --output-dir .bindings/counter-bindings --contract-id $(word 2,$(MAKECMDGOALS)) --network testnet
+	stellar contract bindings typescript --overwrite --output-dir .bindings/counter-bindings --contract-id $(word 2,$(MAKECMDGOALS)) --network testnet
+	cp .bindings/counter-bindings/src/index.ts ../../typescript/src/use\ cases/soroban/counter/bindings.ts
 
 # Special pattern rule to allow additional command-line arguments
-# Without this, make would throw errors for arguments like CONTRACT_ID
 %:
 	@:
 
