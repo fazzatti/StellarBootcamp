@@ -24,6 +24,7 @@ import generateKeypair from "../../classic/account/generate-keypair.ts";
 import initalizeWithFriendbot from "../../classic/account/initialize-with-friendbot.ts";
 import { Keypair, TransactionBuilder } from "@stellar/stellar-sdk";
 import chalk from "chalk";
+import { logHashLink } from "../../../utils/logHashLink.ts";
 
 // Set up transaction signing function for the contract client
 async function setupTransactionSigner(adminKeypair: Keypair) {
@@ -85,6 +86,9 @@ async function incrementCounter(client: Client, amount: bigint) {
   console.log(
     chalk.green(`Counter incremented successfully to ${result.result}`),
   );
+  if (result.sendTransactionResponse?.hash) {
+    logHashLink(result.sendTransactionResponse.hash);
+  }
 
   return result.result;
 }
@@ -102,6 +106,10 @@ async function decrementCounter(client: Client, amount: bigint) {
   console.log(
     chalk.green(`Counter decremented successfully to ${result.result}`),
   );
+  if (result.sendTransactionResponse?.hash) {
+    logHashLink(result.sendTransactionResponse.hash);
+  }
+
   return result.result;
 }
 
