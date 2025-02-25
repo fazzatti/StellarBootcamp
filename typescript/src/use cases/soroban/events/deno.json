@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "events": "deno run -A events.ts"
+  },
+  "imports": {
+    "buffer": "node:buffer",
+    "@stellar/stellar-sdk": "npm:@stellar/stellar-sdk@^13.1.0",
+    "generate-keypair": "../../classic/account/generate-keypair.ts",
+    "initialize-with-friendbot": "../../classic/account/initialize-with-friendbot.ts"
+  }
+}
