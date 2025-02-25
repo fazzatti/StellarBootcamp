@@ -1,5 +1,11 @@
 {
   "tasks": {
-    "counter": "deno run -A --unstable-node-globals --unstable-bare-node-builtins --unstable-sloppy-imports --import-map=./import-map.json counter.ts"
+    "counter": "deno run -A counter.ts"
+  },
+  "imports": {
+    "buffer": "node:buffer",
+    "@stellar/stellar-sdk": "npm:@stellar/stellar-sdk@^13.1.0",
+    "generate-keypair": "../../classic/account/generate-keypair.ts",
+    "initialize-with-friendbot": "../../classic/account/initialize-with-friendbot.ts"
   }
 }
