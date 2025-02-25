@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "keypair": "deno run -A 'src/use cases/classic/account/generate-keypair.ts'",
+    "initialize": "deno run -A 'src/use cases/classic/account/initialize-with-friendbot.ts'",
+    "create-account": "deno run -A 'src/use cases/classic/account/create-account.ts'",
+    "create-account-with-trustline": "deno run -A 'src/use cases/classic/account/create-account-with-trustline.ts'",
+    "sponsor-account": "deno run -A 'src/use cases/classic/account/sponsor-account.ts'",
+    "create-asset": "deno run -A 'src/use cases/classic/asset/create-asset-and-mint.ts'",
+    "classic-payment": "deno run -A 'src/use cases/classic/payment/payment.ts'",
+    "configure-flags": "deno run -A 'src/use cases/classic/asset/configure-flags.ts'",
+    "multisig": "deno run -A 'src/use cases/classic/authorization/multisig.ts'"
+  }
+}

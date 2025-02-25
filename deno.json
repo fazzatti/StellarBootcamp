@@ -1,0 +1,12 @@
+{
+  "workspace": ["./typescript", "./typescript/src/use cases/soroban/counter"],
+  "compilerOptions": {
+    "types": ["npm:@stellar/stellar-sdk@^13.1.0"]
+  },
+  "imports": {
+    "@stellar/stellar-sdk": "npm:@stellar/stellar-sdk@^13.1.0",
+    "chalk": "npm:chalk@^5.4.1"
+  },
+  "nodeModulesDir": "auto",
+  "unstable": ["bare-node-builtins", "byonm", "sloppy-imports", "unsafe-proto"]
+}

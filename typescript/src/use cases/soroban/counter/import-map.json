@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "counter": "../../../../../soroban/counter/.bindings/counter-bindings/src/index.ts",
+    "buffer": "node:buffer",
+    "@stellar/stellar-sdk": "npm:@stellar/stellar-sdk@^13.1.0"
+  }
+}

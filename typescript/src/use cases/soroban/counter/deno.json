@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "counter": "deno run -A --unstable-node-globals --unstable-bare-node-builtins --unstable-sloppy-imports --import-map=./import-map.json counter.ts"
+  }
+}

@@ -1,0 +1,23 @@
+# Package configuration for the smart contract
+[package]
+name = "counter"              # Name of your smart contract
+version = "0.1.0"            # Current version of your contract
+edition = "2021"             # Rust edition being used
+
+# Library configuration
+[lib]
+crate-type = ["cdylib"]      # Compile as a dynamic library for WebAssembly
+
+# Optional features that can be enabled
+[features]
+testutils = ["soroban-sdk/testutils"]    # Enable testing utilities from the SDK
+
+# Runtime dependencies required by the contract
+[dependencies]
+soroban-sdk = { workspace = true }        # Core Stellar smart contract SDK
+soroban-token-sdk = { workspace = true }  # SDK for token-related operations
+
+# Dependencies only used during development and testing
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }     # SDK with testing features enabled
+soroban-token-sdk = { workspace = true }                         # Token SDK for testing

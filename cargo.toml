@@ -1,0 +1,30 @@
+# Workspace configuration for managing multiple Stellar smart contracts
+[workspace]
+members = ["soroban/*",]      # Include all projects in the soroban directory
+resolver = "2"               # Use the new dependency resolver version
+
+# Shared dependencies for all workspace members
+[workspace.dependencies]
+soroban-sdk = "21.4.0"                    # Core Stellar smart contract SDK version
+soroban-token-sdk = { version = "21.4.0" } # Token operations SDK version
+
+# Shared development dependencies for all workspace members
+[workspace.dev-dependencies]
+soroban-sdk = "21.4.0"                    # SDK version for testing
+soroban-token-sdk = { version = "21.4.0" } # Token SDK version for testing
+
+# Optimization settings for release builds
+[profile.release]
+opt-level = "z"             # Optimize for size
+overflow-checks = true      # Keep overflow checks enabled for safety
+debug = 0                   # No debug information
+strip = "symbols"           # Remove debug symbols
+debug-assertions = false    # Disable debug assertions
+panic = "abort"            # Abort on panic (smaller code size)
+codegen-units = 1          # Optimize for size over compile time
+lto = true                 # Enable link-time optimization
+
+# Profile for debugging in release mode
+[profile.release-with-logs]
+inherits = "release"        # Inherit settings from release profile
+debug-assertions = true     # Enable debug assertions for logging
